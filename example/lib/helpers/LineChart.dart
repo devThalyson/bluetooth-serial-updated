@@ -161,10 +161,10 @@ class LineChart extends StatelessWidget {
           argumentsLabels: argumentsLabels,
           values: values,
           valuesLabels: valuesLabels,
-          horizontalLabelsTextStyle:
-              horizontalLabelsTextStyle ?? Theme.of(context).textTheme.caption,
+          horizontalLabelsTextStyle: horizontalLabelsTextStyle ??
+              Theme.of(context).textTheme.bodyLarge,
           verticalLabelsTextStyle:
-              verticalLabelsTextStyle ?? Theme.of(context).textTheme.caption,
+              verticalLabelsTextStyle ?? Theme.of(context).textTheme.bodyLarge,
           horizontalLinesPaint: horizontalLinesPaint,
           verticalLinesPaint: verticalLinesPaint,
           additionalMinimalHorizontalLabelsInterval:
@@ -510,7 +510,7 @@ class _LineChartPainter extends CustomPainter {
       Iterator<double> argument = arguments.iterator;
       while (value.moveNext()) {
         argument.moveNext();
-        if (value.current == null || value.current == double.nan) continue;
+        if (value.current == null) continue;
 
         if (argument.current < argumentsOffset) continue;
         final double xOffset = padding.left +
